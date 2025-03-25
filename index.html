@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godoy Photos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="area-cabecalho">
+        <div>
+            <img id="area-logo" src="imagens/logo.png" alt="">
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar produtos">
+        </div>
+        <div class="icones">
+       
+            <a href="carrinho.html"><img id="area-carrinho" src="imagens/carrinho.png" alt=""></a>
+        </div>
+    </div>
+
+    
+    <div id="area-links">
+        <div >
+            <a id="links" href="index.html">HOME </a>
+            <a href="produtos.html">PRODUTOS </a>
+            <a href="sobre.html">SOBRE </a>
+        </div>
+    </div>
+    <main>
+        <section class="banner">
+          <img id="imagem-principal" src="imagens/inicio.jpg" alt="Fotos espalhadas" class="banner-img">
+        </section>
+  
+        <div>
+          <h3 class="titulo">Destaques</h3>
+      </div>
+
+      <div class="bolinhas">
+        <img class="bolinha" src="imagens/LOGO CARO.jpg" alt="">
+        <img class="bolinha" src="imagens/LOGO CH.jpg" alt="">
+        <img class="bolinha" src="imagens/logo versace.jpg" alt="">
+        <img class="bolinha" src="imagens/LOGO DIOR.jpg" alt="">
+        <img class="bolinha" src="imagens/LOGO PRADA.jpg" alt="">
+        <img class="bolinha" src="imagens/LOGO VS.png" alt="">
+      </div>
+
+      <div>
+        <h3 class="titulo">Ediçoes Limitadas</h3>
+    </div>
+
+        
+    <section class="produtos">
+      
+      <div id="produto">
+        <img id="imagem-produto" src="imagens/prada.jpg" alt="">
+        <p id="titulo-produto"> <strong>Prada</strong></p>
+        <strong class="preco-produto">R$ 849,00</strong>
+        <span class="preco-dolar"></span>
+        <button class="adicionar" data-nome="prada" data-preco="849.0">Adicionar ao Carrinho</button>
+      </div>
+      <div id="produto">
+        <img id="imagem-produto" src="imagens/valentino.jpg" alt="">
+        <p id="titulo-produto"> <strong>Valentino</strong></p>
+        <strong class="preco-produto">R$ 705,00</strong>
+        <span class="preco-dolar"></span>
+        <button class="adicionar" data-nome="Valentino" data-preco="705.0">Adicionar ao Carrinho</button>
+      </div>
+      <div id="produto">
+        <img id="imagem-produto" src="imagens/channel.jpg" alt="">
+        <p id="titulo-produto"> <strong>Channel</strong></p>
+        <strong class="preco-produto">R$ 728,00</strong>
+        <span class="preco-dolar"></span>
+        <button class="adicionar" data-nome="channel" data-preco="728.0">Adicionar ao Carrinho</button>
+      </div>
+  </section>
+
+    
+              <section class="produtos">
+                <div id="produto">
+                  <img id="imagem-produto" src="imagens/lavie.jpg" alt="">
+                  <p id="titulo-produto">La Vie Est Belle<strong></strong></p>
+                  <strong class="preco-produto">R$ 649,00</strong>
+                  <span class="preco-dolar"></span>
+                  <button class="adicionar" data-nome="lavie" data-preco="649.0">Adicionar ao Carrinho</button>
+                </div>
+                <div id="produto">
+                  <img id="imagem-produto" src="imagens/daisylove.jpg" alt="">
+                  <p id="titulo-produto"> <strong>Daisy love</strong></p>
+                  <strong class="preco-produto">R$ 700,00</strong>
+                  <span class="preco-dolar"></span>
+                  <button class="adicionar" data-nome="daisy love" data-preco="700.0">Adicionar ao Carrinho</button>
+                </div>
+                <div id="produto">
+                  <img id="imagem-produto" src="imagens/purePoison.jpg" alt="">
+                  <p id="titulo-produto"> <strong>Pure poison</strong></p>
+                  <strong class="preco-produto">R$ 920,00</strong>
+                  <span class="preco-dolar"></span>
+                  <button class="adicionar" data-nome="pure poison" data-preco="920.0">Adicionar ao Carrinho</button>
+                  
+                </div>
+               
+            </section>
+
+              <script>
+                document.querySelectorAll('.adicionar').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const nome = button.getAttribute('data-nome');
+                        const preco = parseFloat(button.getAttribute('data-preco'));
+          
+                        // Adiciona o produto ao localStorage (simulando o carrinho de compras)
+                        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                        carrinho.push({ nome, preco });
+          
+                        // Atualiza o carrinho no localStorage
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                        alert(`${nome} adicionado ao carrinho!`);
+                    });
+                });
+
+                   // Taxa de câmbio de Real para Dólar (ajustar conforme necessário)
+        const taxaCambio = 5.3; // 1 USD = 5.3 BRL
+
+        // Seleciona todos os elementos com a classe .preco-produto
+        const precosProdutos = document.querySelectorAll('.preco-produto');
+
+        // Para cada preço, calcula o valor em dólares e exibe no campo .preco-dolar
+        precosProdutos.forEach((precoElemento) => {
+            const precoBRL = parseFloat(precoElemento.textContent.replace('R$', '').replace(',', '.').trim());
+            const precoUSD = (precoBRL / taxaCambio).toFixed(2);
+
+            // Encontra o elemento <span> para mostrar o preço em dólares
+            const precoDolarElemento = precoElemento.nextElementSibling;
+            precoDolarElemento.textContent = `USD ${precoUSD}`;
+        });
+
+     
+          // Captura o formulário e o input de pesquisa
+          const searchForm = document.getElementById('searchForm');
+          const searchInput = document.getElementById('searchInput');
+      
+          // Função para realizar a pesquisa
+          function performSearch(query) {
+              // Para este exemplo, apenas mostramos no console o que foi pesquisado
+              console.log('Pesquisando por:', query);
+      
+              // Aqui, você pode adicionar a lógica para buscar em uma base de dados ou filtrar produtos
+              // Exemplo de lógica de busca: se o valor for encontrado em algum array de produtos
+              // Você pode atualizar a página ou redirecionar para uma página de resultados
+          }
+      
+          // Adicionando um evento ao envio do formulário de pesquisa
+          searchForm.addEventListener('submit', function(event) {
+              event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+      
+              const query = searchInput.value.trim(); // Pega o valor digitado na barra de pesquisa
+      
+              if (query) {
+                  performSearch(query); // Chama a função de pesquisa se houver texto na barra
+              } else {
+                  console.log('Por favor, insira algo para pesquisar.');
+              }
+          });
+      </script>
+      
+
+            </div>
+          </div>
+        </section>
+
+        </main>
+        <footer class="rodape">
+          <div class="container">
+            <div class="secao-contato">
+              <h3>CONTATO</h3>
+              <ul>
+                <li>📞 (11) 99267-7391</li>
+                <li>📧 <a id="link-footer" href="mailto:liyassecrets@gmail.com">liyassecrets@gmail.com</a></li>
+                <li>📷 <a id="link-footer" href="https://instagram.com/liyas.secrets" target="_blank">@liyas.secrets</a></li>
+                <li>📍 Mogi das Cruzes - SP</li>
+              </ul>
+            </div>
+            <div class="secao-pagamento">
+              <h3>MEIOS DE PAGAMENTO</h3>
+              <div class="icones-pagamento">
+                <img src="imagens/mastercard.png" alt="Mastercard">
+                <img src="imagens/visa.png" alt="Visa">
+                <img src="imagens/paypal.png" alt="Paypal">
+                <img src="imagens/amex.png" alt="American Express">
+              </div>
+              <h3>MEIOS DE ENVIO</h3>
+              <div class="icones-envio">
+                <img src="imagens/jadlog.png" alt="Jadlog">
+                <img src="imagens/correios.png" alt="Correios">
+                <img src="imagens/MELHOR ENVIO.png" alt="Melhor Envio">
+              </div>
+            </div>
+
+            
+  
+
+            <div class="secao-duvidas">
+              <h3>DÚVIDAS FREQUENTES</h3>
+              <ul>
+                <li>Como envio as fotos?</li>
+                <li>É seguro?</li>
+                <li>Como funciona?</li>
+                <li>Qual o tipo do papel utilizado?</li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </body>
+      </html>

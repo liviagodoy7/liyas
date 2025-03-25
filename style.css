@@ -1,0 +1,538 @@
+body {
+    margin: 0; 
+    overflow-x: hidden;
+    background-color: #ebdacc;
+}
+
+#area-cabecalho {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around; 
+    padding: 4px; 
+    background-color: #ebdacc;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.adicionar{
+  width: 140px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: #c69987;
+  border: #c69987;
+}
+
+#area-logo {
+    width: 170px;
+    margin-right: 20px;
+}
+#area-carrinho {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.search-container {
+    display: flex; 
+    justify-content: center; 
+}
+
+.search-input {
+    width: 500px; 
+    padding: 10px 40px 10px 20px; 
+    border: 2px solid #fff; 
+    border-radius: 12px; 
+    font-size: 16px; 
+    color: #000000b0; 
+    background-color: white; 
+}
+
+.search-input::placeholder {
+    color: #616060;
+}
+
+.icones {
+    display: flex;
+    gap: 2px; 
+    height: 30px;
+    width: 30px;
+    
+}
+
+.preco-dolar {
+  display: block;   /* Para exibir o valor em dólares em uma nova linha, caso queira */
+  font-size: 14px;  /* Ajuste do tamanho da fonte, se necessário */
+  color: #555;      /* Cor do texto para o valor em dólares */
+  margin-top: 5px;  /* Espaço entre o valor em reais e em dólares */
+}
+
+.icon {
+    font-size: 24px; 
+    cursor: pointer;
+}
+
+.carrinho{
+  width: 15px;
+}
+
+#area-links{
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    background-color: #c69987;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    word-spacing: 90px;
+    color: rgb(0, 0, 0);
+}
+
+#links{
+  font-weight: bold;
+}
+
+  #iconss{
+    width:200px;
+    height: 200px;
+  }
+
+
+#textinhos{
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+
+}
+.bolinha{
+  border-radius: 300px;
+  width: 250px;
+  height: 250px;
+  margin-left: 50px;
+  
+}
+
+
+#imagem-principal{
+    width: 1920px;
+    height: 850px;
+}
+
+
+.edicoeslimitadas{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    
+}
+
+
+#produtosD{
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 500px;
+    height: 850px;
+}
+
+#tituloP{
+    color: #000;
+    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#valor{
+    color: black;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+#fotosP{
+    height: 400px;
+    width: 300px;
+   
+}
+
+.preco {
+    font-size: 35px;
+}
+
+
+
+.rodape {
+    background-color: #f5ccbc; /* Cinza claro */
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .secao-contato,
+  .secao-pagamento,
+  .secao-duvidas {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .secao-contato h3,
+  .secao-pagamento h3,
+  .secao-duvidas h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .secao-contato ul,
+  .secao-duvidas ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .secao-contato ul li,
+  .secao-duvidas ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .secao-pagamento .icones-pagamento img,
+  .secao-pagamento .icones-envio img {
+    width: 50px;
+    height: auto;
+    margin: 5px;
+  }
+  
+  .icones-pagamento,
+  .icones-envio {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .secao-pagamento h3 {
+    margin-top: 20px;
+  }
+
+  #categoria{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family: fantasy;
+  }
+
+  .area-categorias{
+    background-color: #5D7DB2;
+    padding: 4px;
+  }
+
+  .produtos{
+    display: flex;
+    justify-content: space-around;
+    padding: 45px;
+    flex-wrap: wrap;
+    
+}
+
+#tituloD{
+    text-align: center;
+    color: #DD6868;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#produto{
+    text-align: center;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid #000000 2px;
+    background-color: white;
+    border-radius: 25px;
+    padding: 19px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 470px;
+}
+
+
+#imagem-produto{
+  height: 320px;
+  width: 300px;
+  border-radius: 25PX;
+}
+
+.preco-produto{
+  font-size: 30px;
+  padding: 12px;
+}
+
+#coracao{
+  width: 30px;
+  margin-left: 265px;
+}
+
+#coracao2{
+  width: 30px;
+  margin-left: 265px;
+  position: relative;
+  bottom: 30px;
+  opacity: 0;
+}
+
+.imagem2{
+  width: 500px;
+}
+
+#coracao2:hover {
+  opacity: 1;
+  scale: 1.2;
+}
+
+#foto-minha{
+  width: 230px;
+}
+.secao {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px;
+}
+
+.secao2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: row;
+  background-color: #c69987;
+}
+
+
+.titulo-secao {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+.conteudo {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+
+.conteudo-texto {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.conteudo-texto .texto {
+  margin: 0 30px;
+}
+
+
+.conteudo .conteudo-imagem {
+  flex: 1;
+  text-align: center;
+}
+
+#link-footer{
+  color: #000;
+}
+
+.imagem {
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px; /* Limita a largura do formulário */
+  width: 100%; /* Garante que o formulário ocupe a largura disponível */
+  background-color: #4a4a4a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin: 0 auto; /* Centraliza o formulário */ 
+}
+
+.rotulo {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.campo-texto {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.botao {
+  width: 100%;
+  padding:10px 220px;
+  background-color: #704819;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: #ecae7a;
+}
+
+
+.titulo-secao {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.titulo-promocoes {
+  font-size: 2rem;
+  color: #000;
+  font-family: "Georgia", serif;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+.conteudo1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+}
+
+
+.conteudo-texto {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-right: 20px;
+}
+
+.texto {
+  padding: 100px;
+  font-size: 25px;
+}
+
+
+.conteudo-imagem {
+  flex: 1;
+  text-align: center;
+}
+
+.imagem {
+  max-width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+/* Estilo do formulário */
+.secao.promocoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 20%; 
+  background-color: #4a4a4a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin: 0;
+}
+
+.rotulo {
+  display: block;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.campo-texto2 {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.botao {
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  padding: 10px;
+  background-color: #e6be74;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #f0b47d;
+}
+
+.titulo{
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+

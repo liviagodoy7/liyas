@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div id="area-cabecalho">
+        <div>
+            <img id="area-logo" src="imagens/logo.png" alt="">
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar produtos">
+        </div>
+        <div class="icones">
+        </div>
+    </div>
+
+    
+    <div id="area-links">
+        <div >
+            <a id="links" href="index.html">HOME </a>
+            <a href="produtos.html">PRODUTOS </a>
+            <a href="sobre.html">SOBRE </a>
+        </div>
+    </div>
+    <div id="carrinho">
+        <h2>Carrinho de Compras</h2>
+        <div id="produtosCarrinho"></div>
+        <h3>Total: R$ <span id="totalCarrinho">0.00</span> / USD <span id="totalCarrinhoUSD">0.00</span></h3>
+        <div>
+            <label>Frete:</label> R$ <span id="valorFrete">R$ 0.00</span> / USD <span id="valorFreteUSD">0.00</span>
+        </div>
+        <h4>Total a Pagar: R$ <span id="totalFinal">0.00</span> (incluindo frete de R$ <span id="freteExplicacao">R$ 0.00</span>) / USD <span id="totalFinalUSD">0.00</span> (incluindo frete de USD <span id="freteExplicacaoUSD">0.00</span>)</h4>
+        <button id="finalizarCompra">Finalizar Compra</button>
+    </div>
+
+    <div id="frete">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Frete e Valor em R$</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="regiões">Norte</td>
+                    <td>R$ 80</td>
+                </tr>
+                <tr>
+                    <td class="regiões">Nordeste</td>
+                    <td>R$ 60</td>
+                </tr>
+                <tr>
+                    <td class="regiões">Sul</td>
+                    <td>R$ 30</td>
+                </tr>
+                <tr>
+                    <td class="regiões">Sudeste</td>
+                    <td>R$ 40</td>
+                </tr>
+                <tr>
+                    <td class="regiões">Centro-Oeste</td>
+                    <td>R$ 50</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <fieldset>
+            <legend>Endereço</legend>
+            <h1>Cálculo do Frete</h1>
+            <label>Digite seu CEP</label>
+            <input type="text" id="cep" autocomplete="off"> <br><br>
+            <label>Seu estado</label> <br>
+            <input type="text" id="regiao" readonly>
+        </fieldset>
+    </div>
+
+    <script>
+        // Taxa de câmbio de Real para Dólar (ajustar conforme necessário)
+        const taxaCambio = 5.3; // 1 USD = 5.3 BRL
+
+        // Função para atualizar o carrinho na página
+        function atualizarCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const produtosCarrinho = document.getElementById('produtosCarrinho');
+            produtosCarrinho.innerHTML = ''; // Limpar carrinho
+
+            let total = 0;
+
+            carrinho.forEach((produto, index) => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <p>${produto.nome} - R$ ${produto.preco.toFixed(2)} / USD ${(produto.preco / taxaCambio).toFixed(2)}</p>
+                    <button onclick="removerItem(${index})">Remover</button>
+                `;
+                produtosCarrinho.appendChild(div);
+                total += produto.preco;
+            });
+
+            // Atualiza o total dos produtos no carrinho
+            document.getElementById('totalCarrinho').textContent = total.toFixed(2);
+            document.getElementById('totalCarrinhoUSD').textContent = (total / taxaCambio).toFixed(2);
+            calcularTotal(total); // Chama a função para recalcular o total com frete
+        }
+
+        // Função para remover um item do carrinho
+        function removerItem(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1); // Remove o item da posição indicada
+            localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o carrinho
+            atualizarCarrinho(); // Atualiza a lista do carrinho na página
+        }
+
+        // Função para calcular o total (produto + frete)
+        function calcularTotal(produtoTotal) {
+            const totalComFrete = produtoTotal + frete;
+            const totalComFreteUSD = totalComFrete / taxaCambio;
+
+            document.getElementById("totalFinal").textContent = totalComFrete.toFixed(2);
+            document.getElementById("totalFinalUSD").textContent = totalComFreteUSD.toFixed(2);
+
+            document.getElementById("freteExplicacao").textContent = `R$ ${frete.toFixed(2)}`;
+            document.getElementById("freteExplicacaoUSD").textContent = `USD ${(frete / taxaCambio).toFixed(2)}`;
+
+            document.getElementById("valorFrete").textContent = `R$ ${frete.toFixed(2)}`;
+            document.getElementById("valorFreteUSD").textContent = `USD ${(frete / taxaCambio).toFixed(2)}`;
+        }
+
+        // Tabela de frete baseada na região
+        const fretesPorRegiao = {
+            "Norte": 80,
+            "Nordeste": 60,
+            "Sul": 30,
+            "Sudeste": 40,
+            "Centro-Oeste": 50
+        };
+
+        // Preenche a região e calcula o frete automaticamente
+        const preencherFormulario = (endereco) => {
+            const regiaoInput = document.getElementById("regiao");
+            const regiao = endereco.regiao; // A API já retorna a região correta
+            regiaoInput.value = regiao; // Exibe a região no input
+
+            // Define o frete com base na tabela
+            frete = fretesPorRegiao[regiao] || 0; // Se não encontrar, assume 0
+            
+            // Recalcula o total do produto + frete
+            const produtoTotal = parseFloat(document.getElementById('totalCarrinho').textContent);
+            calcularTotal(produtoTotal);
+        };
+
+        // Verifica se o CEP tem 8 dígitos
+        const cepValido = (cep) => cep.length === 8;
+
+        // Busca a API ViaCEP para obter a região
+        const pesquisarCep = async () => {
+            const cep = document.getElementById("cep").value;
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            if (cepValido(cep)) {
+                try {
+                    const dados = await fetch(url);
+                    const endereco = await dados.json();
+                    if (!endereco.erro) {
+                        preencherFormulario(endereco);
+                    } else {
+                        alert("CEP inválido!");
+                    }
+                } catch (error) {
+                    console.error("Erro ao buscar o CEP:", error);
+                }
+            } else {
+                alert("CEP inválido! Digite 8 números.");
+            }
+        };
+
+        // Evento para buscar o CEP ao perder o foco do campo
+        document.getElementById("cep").addEventListener("focusout", pesquisarCep);
+
+        // Variáveis globais para armazenar preço do produto e frete
+        let preco = 0;
+        let frete = 0;
+
+        // Mapeia os botões para definir o preço corretamente
+        document.querySelectorAll(".preco").forEach((button, index) => {
+            button.addEventListener("click", () => {
+                const precos = [439.99, 1023.41, 151.99]; // Lista de preços
+                preco = precos[index]; // Define o preço baseado no botão clicado
+                calcularTotal(preco); // Atualiza o total após escolher um produto
+            });
+        });
+
+        // Inicializa o carrinho ao carregar a página
+        window.onload = atualizarCarrinho;
+    </script>
+</body>
+</html>

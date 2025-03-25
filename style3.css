@@ -1,0 +1,235 @@
+    /* Geral */
+
+    #area-logo {
+        width: 170px;
+        margin-right: 20px;
+    }
+    
+    .search-container {
+        display: flex; 
+        justify-content: center; 
+    }
+    
+    .search-input {
+        width: 500px; 
+        padding: 10px 40px 10px 20px; 
+        border: 2px solid #fff; 
+        border-radius: 12px; 
+        font-size: 16px; 
+        color: #000000b0; 
+        background-color: white; 
+    }
+    
+    .search-input::placeholder {
+        color: #616060;
+    }
+    
+    .icones {
+        display: flex;
+        gap: 2px; 
+        height: 30px;
+        width: 30px;
+        
+    }
+    
+    .icon {
+        font-size: 24px; 
+        cursor: pointer;
+    }
+    
+    #area-links{
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        background-color: #c69987;
+        justify-content: center;
+    }
+    
+    a{
+        text-decoration: none;
+        word-spacing: 90px;
+        color: rgb(0, 0, 0);
+    }
+    
+    #links{
+      font-weight: bold;
+    }
+    
+      #iconss{
+        width:200px;
+        height: 200px;
+      }
+    
+    
+#area-cabecalho {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around; 
+    padding: 4px; 
+    background-color: #ebdacc;
+    color: #fff; 
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3f1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do Carrinho */
+#carrinho {
+    background-color: #c69987;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#carrinho h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#produtosCarrinho {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#produtosCarrinho div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#produtosCarrinho p {
+    color: #333;
+    margin: 0;
+    font-size: 16px;
+}
+
+#produtosCarrinho button {
+    background-color: #885f4f;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#produtosCarrinho button:hover {
+    background-color: #b76e79;
+}
+
+/* Total */
+h3 {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#totalCarrinho {
+    font-weight: bold;
+}
+
+#valorFrete {
+    font-weight: bold;
+    color: #2f8d61;
+}
+
+h4 {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+#finalizarCompra {
+    background-color: #885f4f;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#finalizarCompra:hover {
+    background-color: #b76e79;
+}
+
+/* Estilo da Tabela de Frete */
+#frete {
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#frete table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#frete th {
+    background-color: #c69987;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+#frete td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+#frete input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#frete input:focus {
+    outline: none;
+    border-color: #c69987;
+}
+
+/* Estilo das Instruções */
+.half-circle {
+    background-color: #c69987;
+    border-radius: 50% 50% 0 0;
+    padding: 20px;
+    color: #fff;
+    margin: 20px auto;
+    max-width: 450px;
+}
+
+.inicio {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.subtitulo {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 5px;
+}
